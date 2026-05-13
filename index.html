@@ -9,23 +9,23 @@
             --primary-color: #ff9800;
             --secondary-color: #4caf50;
             --accent-color: #2196f3;
-            --bg-color: #fffaf0;
-            --text-color: #333;
+            --bg-color: #fdfaf5;
+            --text-color: #444;
             --card-bg: #ffffff;
-            --header-gradient: linear-gradient(135deg, #ff9800, #ffc107);
+            --header-gradient: linear-gradient(135deg, #ff9800, #ffb300);
         }
 
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.7;
+            line-height: 1.8;
             margin: 0;
-            padding: 15px;
+            padding: 10px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -33,100 +33,141 @@
             text-align: center;
             background: var(--header-gradient);
             color: white;
-            padding: 40px 20px;
-            border-radius: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.2);
+            padding: 35px 15px;
+            border-radius: 0 0 30px 30px;
+            margin: -10px -10px 30px -10px;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
         }
 
-        h1 { margin: 0; font-size: 2em; text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+        h1 { margin: 0; font-size: 1.8em; letter-spacing: 1px; }
         h2 { 
-            border-left: 8px solid var(--secondary-color); 
-            padding: 5px 15px; 
-            color: var(--secondary-color); 
-            margin-top: 30px;
-            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 8px;
         }
+        h2::before {
+            content: "◆";
+            margin-right: 8px;
+            font-size: 0.8em;
+        }
+
         h3 { 
             color: var(--primary-color); 
-            border-bottom: 2px dashed var(--primary-color); 
-            display: inline-block;
+            font-size: 1.1em;
+            margin-top: 0;
             margin-bottom: 15px;
+            background: #fff8e1;
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 8px; }
+        ul { padding-left: 18px; margin: 0; }
+        li { margin-bottom: 6px; }
 
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 15px 0;
-            border-radius: 10px;
-            overflow: hidden;
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 10px 0;
+            border-radius: 12px;
             border: 1px solid #eee;
         }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+            background: #fff;
+        }
+
         th, td {
-            padding: 12px;
+            padding: 12px 8px;
             text-align: center;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95em;
         }
 
-        th { background-color: #fff4e5; color: var(--primary-color); font-weight: bold; }
-        tr:last-child td { border-bottom: none; }
+        th { background-color: #fafafa; color: #666; font-weight: bold; }
 
-        .important { color: #e91e63; font-weight: bold; }
+        .important { color: #d32f2f; font-weight: bold; }
         
-        .rank-list li {
-            list-style: none;
+        .rank-list { list-style: none; padding: 0; }
+        .rank-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
             padding: 10px;
-            background: #fdfdfd;
+            background: #fcfcfc;
+            border-radius: 10px;
+        }
+        .rank-label {
+            min-width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #f0f0f0;
+            margin-right: 12px;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
         }
 
-        .rank-s { color: #f44336; font-weight: bold; font-size: 1.1em; }
-        .rank-a { color: #ff9800; font-weight: bold; font-size: 1.1em; }
-        .rank-b { color: #4caf50; font-weight: bold; font-size: 1.1em; }
-        .rank-c { color: #2196f3; font-weight: bold; font-size: 1.1em; }
-        .rank-d { color: #9c27b0; font-weight: bold; font-size: 1.1em; }
+        .rank-s .rank-label { background-color: #f44336; }
+        .rank-a .rank-label { background-color: #ff9800; }
+        .rank-b .rank-label { background-color: #4caf50; }
+        .rank-c .rank-label { background-color: #2196f3; }
+        .rank-d .rank-label { background-color: #9c27b0; }
+
+        .team-box {
+            background: #fff9f0;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px dashed #ffcc80;
+        }
+        .team-box ol { padding-left: 25px; }
 
         .rule-note { 
-            font-size: 0.9em; 
-            color: #666; 
-            background: #f7f7f7; 
+            font-size: 0.85em; 
+            color: #777; 
+            background: #f9f9f9; 
             padding: 12px; 
-            border-radius: 10px;
-            margin-top: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
         }
 
         footer {
             text-align: center;
-            color: #aaa;
-            margin: 50px 0;
-            font-size: 0.9em;
+            color: #bbb;
+            margin: 40px 0;
+            font-size: 0.8em;
         }
 
         @media (max-width: 600px) {
-            header { padding: 30px 15px; }
-            h1 { font-size: 1.6em; }
+            body { padding: 8px; }
+            header { padding: 30px 10px; }
+            h1 { font-size: 1.5em; }
             .card { padding: 15px; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -134,8 +175,8 @@
 
 <div class="container">
     <header>
-        <h1>🀄 第4回 クラックスリーグ</h1>
-        <p>〜 楽しんで勝つ！交流と真剣勝負のリーグ戦 〜</p>
+        <h1>第4回 クラックスリーグ</h1>
+        <p style="margin-top:10px; opacity: 0.9;">〜 楽しんで勝つ！交流と真剣勝負 〜</p>
     </header>
 
     <section class="card">
@@ -146,8 +187,8 @@
                 <ul>
                     <li><strong>3人打ち</strong>（4人の場合は北家抜け）</li>
                     <li><strong>使用牌：</strong> 東・南・西（北は不使用・抜きドラ無し）</li>
-                    <li><strong>半荘戦：</strong> 全員4万点未満なら「西入」</li>
-                    <li><strong>終了条件：</strong> 誰かが0点を下回る、もしくは南場で親が上がった時点で終了</li>
+                    <li><strong>半荘戦：</strong> 全員4万点未満なら「西入」し、誰かが4万点を越えた時点で終了</li>
+                    <li><strong>終了条件：</strong> 誰かが0点を下回る、もしくはオーラスで親が上がった時点で終了</li>
                     <li><strong>親不聴：</strong> 東場は流れ、南場は連荘</li>
                     <li><strong>ダブロン：</strong> あり</li>
                 </ul>
@@ -159,7 +200,7 @@
                     <li><strong>レート：</strong> 1,000点 ＝ 50PT</li>
                     <li><strong>チップ：</strong> 1枚 ＝ 200PT</li>
                     <li><strong>端数：</strong> 1,000点未満切り上げ</li>
-                    <li><strong>ツモ損：</strong> なし（飜数が低い場合はツモ得）</li>
+                    <li><strong>ツモ損：</strong> なし</li>
                     <li><strong>焼き鳥：</strong> なし</li>
                 </ul>
             </div>
@@ -171,91 +212,90 @@
         <div class="grid">
             <div>
                 <h3>順位点</h3>
-                <table>
-                    <tr><th>3人時</th><td>1位 +30 / 2位 -10 / 3位 -20</td></tr>
-                    <tr><th>4人時</th><td>1位 +30 / 2位 +10 / 3位 -10 / 4位 -30</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table>
+                        <tr><th>3人時</th><td>1位 +30 / 2位 -10 / 3位 -20</td></tr>
+                        <tr><th>4人時</th><td>1位 +30 / 2位 +10 / 3位 -10 / 4位 -30</td></tr>
+                    </table>
+                </div>
             </div>
             <div>
                 <h3>チップ対象（1枚）</h3>
-                <p>一発、裏ドラ、嶺上開花、槍槓、海底摸月、河底撈魚</p>
-                <div class="rule-note">※大明槓の嶺上チップは通常自摸扱い</div>
+                <p style="margin: 0; font-size: 0.95em;">一発、裏ドラ、嶺上開花、槍槓、海底摸月、河底撈魚</p>
+                <div class="rule-note" style="margin-top: 10px;">※大明槓の嶺上チップは通常自摸扱い</div>
             </div>
         </div>
-        <h3>役満のご祝儀（枚数）</h3>
-        <table>
-            <tr>
-                <th>種類</th>
-                <th>枚数（ツモ/1人）</th>
-                <th>枚数（ロン/放銃者）</th>
-            </tr>
-            <tr>
-                <td>数え役満(13飜〜)</td>
-                <td>3枚</td>
-                <td>6枚</td>
-            </tr>
-            <tr>
-                <td>役満</td>
-                <td>6枚</td>
-                <td>12枚(4人時) / 10枚(3人時)</td>
-            </tr>
-            <tr>
-                <td>ダブル役満</td>
-                <td>12枚</td>
-                <td>24枚</td>
-            </tr>
-        </table>
+        <h3 style="margin-top: 20px;">役満のご祝儀（枚数）</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>種類</th>
+                        <th>ツモ(1人)</th>
+                        <th>ロン(放銃者)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>数え役満(13飜〜)</td><td>3枚</td><td>6枚</td></tr>
+                    <tr><td>役満</td><td>6枚</td><td>12枚(4人時) / 10枚(3人時)</td></tr>
+                    <tr><td>ダブル役満</td><td>12枚</td><td>24枚</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section class="card">
         <h2>得点表（親・子共通）</h2>
-        <p>※ツモ和了時は（子負担）＋（親/他子負担）の合計となります。</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>飜数</th>
-                    <th>親ロン</th>
-                    <th>子ロン</th>
-                    <th>ツモ内訳</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1飜</td><td>2,000</td><td>1,000</td><td>1,000 + 1,000</td></tr>
-                <tr><td>2飜</td><td>3,000</td><td>2,000</td><td>2,000 + 1,000</td></tr>
-                <tr><td>3飜</td><td>6,000</td><td>4,000</td><td>3,000 + 1,000</td></tr>
-                <tr><td>4〜5飜(満貫)</td><td>12,000</td><td>8,000</td><td>5,000 + 3,000</td></tr>
-                <tr><td>6〜7飜(跳満)</td><td>18,000</td><td>12,000</td><td>8,000 + 4,000</td></tr>
-                <tr><td>8〜10飜(倍満)</td><td>24,000</td><td>16,000</td><td>10,000 + 6,000</td></tr>
-                <tr><td>11〜12飜(三倍満)</td><td>36,000</td><td>24,000</td><td>16,000 + 8,000</td></tr>
-                <tr><td>13飜〜(数え役満)</td><td>48,000</td><td>32,000</td><td>20,000 + 12,000</td></tr>
-            </tbody>
-        </table>
-        <p class="rule-note">※4本場から2飜縛り、8本場から3飜縛りとなります。</p>
+        <p class="rule-note">※ツモ和了時は（子負担）＋（親/他子負担）の合計となります。</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>飜数</th>
+                        <th>親ロン</th>
+                        <th>子ロン</th>
+                        <th>ツモ内訳</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1飜</td><td>2,000</td><td>1,000</td><td>1,000 + 1,000</td></tr>
+                    <tr><td>2飜</td><td>3,000</td><td>2,000</td><td>2,000 + 1,000</td></tr>
+                    <tr><td>3飜</td><td>6,000</td><td>4,000</td><td>3,000 + 1,000</td></tr>
+                    <tr><td>4〜5飜(満貫)</td><td>12,000</td><td>8,000</td><td>5,000 + 3,000</td></tr>
+                    <tr><td>6〜7飜(跳満)</td><td>18,000</td><td>12,000</td><td>8,000 + 4,000</td></tr>
+                    <tr><td>8〜10飜(倍満)</td><td>24,000</td><td>16,000</td><td>10,000 + 6,000</td></tr>
+                    <tr><td>11〜12飜(三倍満)</td><td>36,000</td><td>24,000</td><td>16,000 + 8,000</td></tr>
+                    <tr><td>13飜〜(数え役満)</td><td>48,000</td><td>32,000</td><td>20,000 + 12,000</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="rule-note" style="border-left-color: var(--primary-color);">※4本場から2飜縛り、8本場から3飜縛りとなります。</p>
     </section>
 
     <section class="card">
         <h2>ハンデ・ランク制度</h2>
-        <p>半荘終了後の順位確定時に、同卓者のランク差に応じて加算されます。</p>
-        <p><strong>1ランク差につき：+5ポイント</strong></p>
+        <p style="margin-bottom: 20px;"><strong>1ランク差につき：+5ポイント</strong> <br><small>※半荘終了後の順位確定時に加算</small></p>
         <div class="grid">
             <div>
                 <h3>ランク別 暫定メンバー</h3>
-                <ul class="rank-list">
-                    <li><span class="rank-s">S</span>：小林秀 平野</li>
-                    <li><span class="rank-a">A</span>：岡田　小林大　稲森　野坂</li>
-                    <li><span class="rank-b">B</span>：松下　中　花田　上西　宮原</li>
-                    <li><span class="rank-c">C</span>：堀</li>
-                    <li><span class="rank-d">D</span>： <small>※初参加・1期のみ</small></li>
-                </ul>
+                <div class="rank-list">
+                    <div class="rank-item rank-s"><span class="rank-label">S</span><div>小林秀 平野</div></div>
+                    <div class="rank-item rank-a"><span class="rank-label">A</span><div>岡田　小林大　稲森　野坂</div></div>
+                    <div class="rank-item rank-b"><span class="rank-label">B</span><div>松下　中　花田　上西　宮原</div></div>
+                    <div class="rank-item rank-c"><span class="rank-label">C</span><div>堀</div></div>
+                    <div class="rank-item rank-d"><span class="rank-label">D</span><div><small>※初参加・1期のみ</small></div></div>
+                </div>
             </div>
-            <div style="background: #fff8e1; padding: 20px; border-radius: 15px; border: 1px solid #ffe0b2;">
+            <div>
                 <h3>チーム編成</h3>
-                <ol>
-                    <li>小林秀 ＆ 花田 ＆ 宮原</li>
-                    <li>平野 ＆ 中 ＆ 藤岡</li>
-                    <li>岡田 ＆ 野坂 ＆ 堀</li>
-                    <li>小林大 ＆ 稲森 ＆ 松下</li>
-                </ol>
+                <div class="team-box">
+                    <ol>
+                        <li>小林秀 ＆ 花田 ＆ 宮原</li>
+                        <li>平野 ＆ 中 ＆ 藤岡</li>
+                        <li>岡田 ＆ 野坂 ＆ 堀</li>
+                        <li>小林大 ＆ 稲森 ＆ 松下</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </section>
@@ -265,7 +305,7 @@
         <div class="grid">
             <div>
                 <h3>採用・不採用</h3>
-                <ul>
+                <ul style="list-style: none; padding: 0;">
                     <li><span class="important">×</span> 喰い断、後付け、役牌バック：<strong>なし</strong></li>
                     <li><span class="important">×</span> 片和了り（1飜確定時以外）：<strong>不可</strong></li>
                     <li><span class="important">×</span> 形式テンパイ：<strong>なし</strong></li>
@@ -279,18 +319,18 @@
                 <ul>
                     <li><strong>三連刻：</strong> 2飜</li>
                     <li><strong>六飜：</strong> 小車輪（混一色＋七対子）</li>
-                    <li><strong>役満：</strong> 四連刻、字一色、流し満貫（流し役満）、大車輪、紅孔雀、七対子4枚使い2組</li>
+                    <li><strong>役満：</strong> 四連刻、字一色、流し満貫、大車輪、紅孔雀、七対子4枚使い2組</li>
                     <li><strong>ダブル役満：</strong> 大四喜、四暗刻単騎、国士13面、九蓮9面</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="card">
-        <h2>反則・チョンボ</h2>
+    <section class="card" style="border: 1px solid #ffebee;">
+        <h2 style="color: #d32f2f; border-bottom-color: #ffebee;">反則・チョンボ</h2>
         <ul>
             <li><strong>チョンボ：</strong> 満貫払い。次局は親・本場ともにそのまま。</li>
-            <li><strong>対象：</strong> 誤ロン（その場で終了）、フリテン立直、少牌・多牌（即チョンボ・和了放棄）。</li>
+            <li><strong>対象：</strong> 誤ロン、フリテン立直、少牌・多牌（即チョンボ・和了放棄）。</li>
             <li><strong>フリテン：</strong> 同巡内はツモも不可。1巡経てばツモ和了のみOK。</li>
         </ul>
     </section>
