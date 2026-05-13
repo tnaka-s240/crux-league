@@ -15,18 +15,25 @@
             --header-gradient: linear-gradient(135deg, #ff9800, #ffb300);
         }
 
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.8;
             margin: 0;
-            padding: 10px;
+            padding: 0;
+            overflow-x: hidden;
         }
 
         .container {
+            width: 100%;
             max-width: 850px;
             margin: 0 auto;
+            padding: 0 10px 20px 10px;
         }
 
         header {
@@ -35,17 +42,18 @@
             color: white;
             padding: 35px 15px;
             border-radius: 0 0 30px 30px;
-            margin: -10px -10px 30px -10px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
         }
 
-        h1 { margin: 0; font-size: 1.8em; letter-spacing: 1px; }
+        h1 { margin: 0; font-size: 1.6em; letter-spacing: 1px; }
+        
         h2 { 
             display: flex;
             align-items: center;
             color: var(--secondary-color);
-            font-size: 1.3em;
-            margin-bottom: 20px;
+            font-size: 1.2em;
+            margin: 0 0 15px 0;
             border-bottom: 2px solid #e8f5e9;
             padding-bottom: 8px;
         }
@@ -57,53 +65,72 @@
 
         h3 { 
             color: var(--primary-color); 
-            font-size: 1.1em;
+            font-size: 1.05em;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             background: #fff8e1;
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 30px;
             display: inline-block;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 20px;
+            padding: 18px;
             border-radius: 18px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid rgba(0,0,0,0.02);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 15px;
         }
 
-        ul { padding-left: 18px; margin: 0; }
-        li { margin-bottom: 6px; }
+        ul { padding-left: 1.2em; margin: 0; }
+        li { margin-bottom: 5px; }
 
+        /* 順位点用：スクロール不要のリストデザイン */
+        .score-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+        }
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: #fafafa;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+        .score-label { font-weight: bold; color: #666; }
+
+        /* 得点表：幅を抑えて調整 */
         .table-wrapper {
+            width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             margin: 10px 0;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid #eee;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 500px;
+            min-width: 400px;
             background: #fff;
         }
 
         th, td {
-            padding: 12px 8px;
+            padding: 10px 4px;
             text-align: center;
             border-bottom: 1px solid #f0f0f0;
-            font-size: 0.95em;
+            font-size: 0.85em;
         }
 
         th { background-color: #fafafa; color: #666; font-weight: bold; }
@@ -113,15 +140,15 @@
         .rank-list { list-style: none; padding: 0; }
         .rank-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            padding: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
             background: #fcfcfc;
             border-radius: 10px;
         }
         .rank-label {
-            min-width: 35px;
-            height: 35px;
+            min-width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -144,28 +171,26 @@
             border-radius: 15px;
             border: 1px dashed #ffcc80;
         }
-        .team-box ol { padding-left: 25px; }
 
         .rule-note { 
-            font-size: 0.85em; 
+            font-size: 0.8em; 
             color: #777; 
             background: #f9f9f9; 
-            padding: 12px; 
+            padding: 10px; 
             border-radius: 8px;
             border-left: 4px solid #ddd;
+            margin: 10px 0;
         }
 
         footer {
             text-align: center;
             color: #bbb;
-            margin: 40px 0;
+            margin: 30px 0;
             font-size: 0.8em;
         }
 
         @media (max-width: 600px) {
-            body { padding: 8px; }
-            header { padding: 30px 10px; }
-            h1 { font-size: 1.5em; }
+            h1 { font-size: 1.4em; }
             .card { padding: 15px; }
             .grid { grid-template-columns: 1fr; }
         }
@@ -176,7 +201,7 @@
 <div class="container">
     <header>
         <h1>第5回 クラックスリーグ</h1>
-        <p style="margin-top:10px; opacity: 0.9;">〜 楽しんで勝つ！交流と真剣勝負 〜</p>
+        <p style="margin-top:8px; font-size: 0.9em; opacity: 0.9;">〜 楽しんで勝つ！交流と真剣勝負 〜</p>
     </header>
 
     <section class="card">
@@ -212,32 +237,30 @@
         <div class="grid">
             <div>
                 <h3>順位点</h3>
-                <div class="table-wrapper">
-                    <table>
-                        <tr><th>3人時</th><td>1位 +30 / 2位 -10 / 3位 -20</td></tr>
-                        <tr><th>4人時</th><td>1位 +30 / 2位 +10 / 3位 -10 / 4位 -30</td></tr>
-                    </table>
-                </div>
+                <ul class="score-list">
+                    <li class="score-item"><span class="score-label">3人時</span><span>1位 +30 / 2位 -10 / 3位 -20</span></li>
+                    <li class="score-item"><span class="score-label">4人時</span><span>1位 +30 / 2位 +10 / 3位 -10 / 4位 -30</span></li>
+                </ul>
             </div>
             <div>
                 <h3>チップ対象（1枚）</h3>
-                <p style="margin: 0; font-size: 0.95em;">一発、裏ドラ、嶺上開花、槍槓、海底摸月、河底撈魚</p>
-                <div class="rule-note" style="margin-top: 10px;">※大明槓の嶺上チップは通常自摸扱い</div>
+                <p style="margin: 0; font-size: 0.9em;">一発、裏ドラ、嶺上開花、槍槓、海底摸月、河底撈魚</p>
+                <div class="rule-note">※大明槓の嶺上チップは通常自摸扱い</div>
             </div>
         </div>
-        <h3 style="margin-top: 20px;">役満のご祝儀（枚数）</h3>
+        <h3 style="margin-top: 15px;">役満のご祝儀（枚数）</h3>
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
                         <th>種類</th>
                         <th>ツモ(1人)</th>
-                        <th>ロン(放銃者)</th>
+                        <th>ロン(放銃)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>数え役満(13飜〜)</td><td>3枚</td><td>6枚</td></tr>
-                    <tr><td>役満</td><td>6枚</td><td>12枚(4人時) / 10枚(3人時)</td></tr>
+                    <tr><td>数え役満</td><td>3枚</td><td>6枚</td></tr>
+                    <tr><td>役満</td><td>6枚</td><td>12枚(4人)/10枚(3人)</td></tr>
                     <tr><td>ダブル役満</td><td>12枚</td><td>24枚</td></tr>
                 </tbody>
             </table>
@@ -258,14 +281,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1飜</td><td>2,000</td><td>1,000</td><td>1,000 + 1,000</td></tr>
-                    <tr><td>2飜</td><td>3,000</td><td>2,000</td><td>2,000 + 1,000</td></tr>
-                    <tr><td>3飜</td><td>6,000</td><td>4,000</td><td>3,000 + 1,000</td></tr>
-                    <tr><td>4〜5飜(満貫)</td><td>12,000</td><td>8,000</td><td>5,000 + 3,000</td></tr>
-                    <tr><td>6〜7飜(跳満)</td><td>18,000</td><td>12,000</td><td>8,000 + 4,000</td></tr>
-                    <tr><td>8〜10飜(倍満)</td><td>24,000</td><td>16,000</td><td>10,000 + 6,000</td></tr>
-                    <tr><td>11〜12飜(三倍満)</td><td>36,000</td><td>24,000</td><td>16,000 + 8,000</td></tr>
-                    <tr><td>13飜〜(数え役満)</td><td>48,000</td><td>32,000</td><td>20,000 + 12,000</td></tr>
+                    <tr><td>1飜</td><td>2,000</td><td>1,000</td><td>1,000+1,000</td></tr>
+                    <tr><td>2飜</td><td>3,000</td><td>2,000</td><td>2,000+1,000</td></tr>
+                    <tr><td>3飜</td><td>6,000</td><td>4,000</td><td>3,000+1,000</td></tr>
+                    <tr><td>4〜5(満貫)</td><td>12,000</td><td>8,000</td><td>5,000+3,000</td></tr>
+                    <tr><td>6〜7(跳満)</td><td>18,000</td><td>12,000</td><td>8,000+4,000</td></tr>
+                    <tr><td>8〜10(倍満)</td><td>24,000</td><td>16,000</td><td>10,000+6,000</td></tr>
+                    <tr><td>11〜12(三倍)</td><td>36,000</td><td>24,000</td><td>16,000+8,000</td></tr>
+                    <tr><td>13〜(数え)</td><td>48,000</td><td>32,000</td><td>20,000+12,000</td></tr>
                 </tbody>
             </table>
         </div>
@@ -274,7 +297,7 @@
 
     <section class="card">
         <h2>ハンデ・ランク制度</h2>
-        <p style="margin-bottom: 20px;"><strong>1ランク差につき：+5ポイント</strong> <br><small>※半荘終了後の順位確定時に加算</small></p>
+        <p style="margin-bottom: 15px; font-size: 0.95em;"><strong>1ランク差につき：+5ポイント</strong> <br><small>※半荘終了後の順位確定時に加算</small></p>
         <div class="grid">
             <div>
                 <h3>ランク別 暫定メンバー</h3>
@@ -283,18 +306,14 @@
                     <div class="rank-item rank-a"><span class="rank-label">A</span><div>岡田　小林大　稲森　野坂</div></div>
                     <div class="rank-item rank-b"><span class="rank-label">B</span><div>松下　中　花田　上西　宮原</div></div>
                     <div class="rank-item rank-c"><span class="rank-label">C</span><div>堀</div></div>
-                    <!-- <div class="rank-item rank-d"><span class="rank-label">D</span><div><small>※初参加・1期のみ</small></div></div> -->
-                </div>
+                    </div>
             </div>
             <div>
                 <h3>チーム編成</h3>
                 <div class="team-box">
-                    <ol>
-                        <!-- <li>小林秀 ＆ 花田 ＆ 宮原</li> -->
-                        <!-- <li>平野 ＆ 中 ＆ 藤岡</li> -->
-                        <!-- <li>岡田 ＆ 野坂 ＆ 堀</li> -->
-                        <!-- <li>小林大 ＆ 稲森 ＆ 松下</li> -->
-                    </ol>
+                    <p style="margin:0; font-size: 0.9em; color: #999;">（チーム対抗戦 設定予定）</p>
+                    <ol style="margin-top:10px;">
+                        </ol>
                 </div>
             </div>
         </div>
@@ -326,7 +345,7 @@
         </div>
     </section>
 
-    <section class="card" style="border: 1px solid #ffebee;">
+    <section class="card" style="border: 1px solid #ffebee; margin-bottom: 40px;">
         <h2 style="color: #d32f2f; border-bottom-color: #ffebee;">反則・チョンボ</h2>
         <ul>
             <li><strong>チョンボ：</strong> 満貫払い。次局は親・本場ともにそのまま。</li>
