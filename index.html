@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>第4回 クラックスリーグ ルールブック</title>
+    <style>
+        :root {
+            --primary-color: #ff9800;
+            --secondary-color: #4caf50;
+            --accent-color: #2196f3;
+            --bg-color: #fff9e6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #ff9800, #ffc107);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 2.2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        h2 { border-left: 6px solid var(--secondary-color); padding-left: 15px; color: var(--secondary-color); margin-top: 40px; }
+        h3 { color: var(--primary-color); border-bottom: 2px dashed var(--primary-color); display: inline-block; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background: #fff;
+        }
+
+        th, td {
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th { background-color: #f8f8f8; color: var(--primary-color); }
+
+        .important { color: #e91e63; font-weight: bold; }
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 5px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.9em;
+            margin-right: 5px;
+        }
+
+        .rank-s { color: #f44336; font-weight: bold; }
+        .rank-a { color: #ff9800; font-weight: bold; }
+        .rank-b { color: #4caf50; font-weight: bold; }
+        .rank-c { color: #2196f3; font-weight: bold; }
+        .rank-d { color: #9c27b0; font-weight: bold; }
+
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .schedule-item {
+            background: #fff;
+            border: 2px solid var(--secondary-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .rule-note { font-size: 0.9em; color: #666; background: #f0f0f0; padding: 10px; border-radius: 5px; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🀄 第4回 クラックスリーグ</h1>
+        <p>〜 楽しんで勝つ！交流と真剣勝負のリーグ戦 〜</p>
+    </header>
+
+    <section class="card">
+        <h2>基本システム</h2>
+        <div class="grid">
+            <div>
+                <h3>プレイスタイル</h3>
+                <ul>
+                    <li><strong>3人打ち</strong>（4人の場合は北家抜け）</li>
+                    <li><strong>使用牌：</strong> 東・南・西（北は不使用・抜きドラ無し）</li>
+                    <li><strong>半荘戦：</strong> 全員4万点未満なら「西入」</li>
+                    <li><strong>終了条件：</strong> 誰かが0点を下回る、もしくは南場で親が上がった時点で終了</li>
+                    <li><strong>親不聴：</strong> 東場は流れ、南場は連荘</li>
+                    <li><strong>ダブロン：</strong> あり</li>
+                </ul>
+            </div>
+            <div>
+                <h3>点数・レート</h3>
+                <ul>
+                    <li><strong>持ち点：</strong> 35,000点持ち / 40,000点返し</li>
+                    <li><strong>レート：</strong> 1,000点 ＝ 50PT</li>
+                    <li><strong>チップ：</strong> 1枚 ＝ 200PT</li>
+                    <li><strong>端数：</strong> 1,000点未満切り上げ</li>
+                    <li><strong>ツモ損：</strong> なし（飜数が低い場合はツモ得）</li>
+                    <li><strong>焼き鳥：</strong> なし</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>順位点・チップ・役満</h2>
+        <div class="grid">
+            <div>
+                <h3>順位点</h3>
+                <table>
+                    <tr><th>3人時</th><td>1位 +30 / 2位 -10 / 3位 -20</td></tr>
+                    <tr><th>4人時</th><td>1位 +30 / 2位 +10 / 3位 -10 / 4位 -30</td></tr>
+                </table>
+            </div>
+            <div>
+                <h3>チップ対象（1枚）</h3>
+                <p>一発、裏ドラ、嶺上開花、槍槓、海底摸月、河底撈魚</p>
+                <div class="rule-note">※大明槓の嶺上チップは通常自摸扱い</div>
+            </div>
+        </div>
+        <h3>役満のご祝儀（枚数）</h3>
+        <table>
+            <tr>
+                <th>種類</th>
+                <th>枚数（ツモ/1人）</th>
+                <th>枚数（ロン/放銃者）</th>
+            </tr>
+            <tr>
+                <td>数え役満(13飜〜)</td>
+                <td>3枚</td>
+                <td>6枚</td>
+            </tr>
+            <tr>
+                <td>役満</td>
+                <td>6枚</td>
+                <td>12枚(4人時) / 10枚(3人時)</td>
+            </tr>
+            <tr>
+                <td>ダブル役満</td>
+                <td>12枚</td>
+                <td>24枚</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>得点表（親・子共通）</h2>
+        <p>※ツモ和了時は（子負担）＋（親/他子負担）の合計となります。</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>飜数</th>
+                    <th>親ロン</th>
+                    <th>子ロン</th>
+                    <th>ツモ内訳</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1飜</td><td>2,000</td><td>1,000</td><td>1,000 + 1,000</td></tr>
+                <tr><td>2飜</td><td>3,000</td><td>2,000</td><td>2,000 + 1,000</td></tr>
+                <tr><td>3飜</td><td>6,000</td><td>4,000</td><td>3,000 + 1,000</td></tr>
+                <tr><td>4〜5飜(満貫)</td><td>12,000</td><td>8,000</td><td>5,000 + 3,000</td></tr>
+                <tr><td>6〜7飜(跳満)</td><td>18,000</td><td>12,000</td><td>8,000 + 4,000</td></tr>
+                <tr><td>8〜10飜(倍満)</td><td>24,000</td><td>16,000</td><td>10,000 + 6,000</td></tr>
+                <tr><td>11〜12飜(三倍満)</td><td>36,000</td><td>24,000</td><td>16,000 + 8,000</td></tr>
+                <tr><td>13飜〜(数え役満)</td><td>48,000</td><td>32,000</td><td>20,000 + 12,000</td></tr>
+            </tbody>
+        </table>
+        <p class="rule-note">※4本場から2飜縛り、8本場から3飜縛りとなります。</p>
+    </section>
+
+    <section class="card">
+        <h2>ハンデ・ランク制度</h2>
+        <p>半荘終了後の順位確定時に、同卓者のランク差に応じて加算されます。</p>
+        <p><strong>1ランク差につき：+5ポイント</strong></p>
+        <div class="grid">
+            <div>
+                <h3>ランク別 暫定メンバー</h3>
+                <ul>
+                    <li><span class="rank-s">S</span>：小林秀</li>
+                    <li><span class="rank-a">A</span>：平野</li>
+                    <li><span class="rank-b">B</span>：岡田、小林大、稲森</li>
+                    <li><span class="rank-c">C</span>：松下、中、野坂、花田</li>
+                    <li><span class="rank-d">D</span>：堀、宮原 <small>※初参加・1期のみ</small></li>
+                </ul>
+            </div>
+            <div style="background: #fff8e1; padding: 15px; border-radius: 10px;">
+                <h3>チーム編成</h3>
+                <ol>
+                    <li>小林秀 ＆ 花田 ＆ 宮原</li>
+                    <li>平野 ＆ 中 ＆ 藤岡</li>
+                    <li>岡田 ＆ 野坂 ＆ 堀</li>
+                    <li>小林大 ＆ 稲森 ＆ 松下</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>特殊ルール・役の扱い</h2>
+        <div class="grid">
+            <div>
+                <h3>採用・不採用</h3>
+                <ul>
+                    <li><span class="important">×</span> 喰い断、後付け、役牌バック：<strong>なし</strong></li>
+                    <li><span class="important">×</span> 片和了り（1飜確定時以外）：<strong>不可</strong></li>
+                    <li><span class="important">×</span> 形式テンパイ：<strong>なし</strong></li>
+                    <li><span class="important">×</span> オープン立直：<strong>なし</strong></li>
+                    <li><span class="important">◯</span> 4枚使い七対子：<strong>あり</strong></li>
+                    <li><span class="important">◯</span> フリテンツモ：<strong>1巡後から可能</strong></li>
+                </ul>
+            </div>
+            <div>
+                <h3>特殊役</h3>
+                <ul>
+                    <li><strong>三連刻：</strong> 2飜</li>
+                    <li><strong>六飜：</strong> 小車輪（混一色＋七対子）</li>
+                    <li><strong>役満：</strong> 四連刻、字一色、流し満貫（流し役満）、大車輪、紅孔雀、七対子4枚使い2組</li>
+                    <li><strong>ダブル役満：</strong> 大四喜、四暗刻単騎、国士13面、九蓮9面</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>反則・チョンボ</h2>
+        <ul>
+            <li><strong>チョンボ：</strong> 満貫払い。次局は親・本場ともにそのまま。</li>
+            <li><strong>対象：</strong> 誤ロン（その場で終了）、フリテン立直、少牌・多牌（即チョンボ・和了放棄）。</li>
+            <li><strong>フリテン：</strong> 同巡内はツモも不可。1巡経てばツモ和了のみOK。</li>
+        </ul>
+    </section>
+
+    <footer style="text-align: center; color: #999; margin: 40px 0;">
+        <p>© 第4回 クラックスリーグ 運営</p>
+    </footer>
+</div>
+
+</body>
+</html>
